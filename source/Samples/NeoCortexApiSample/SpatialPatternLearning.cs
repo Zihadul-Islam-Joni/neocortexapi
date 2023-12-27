@@ -160,7 +160,7 @@ namespace NeoCortexApiSample
             }
 
             // Learning process will take 1000 iterations (cycles)
-            int maxSPLearningCycles = 1000;
+            int maxSPLearningCycles = 10;
 
             for (int cycle = 0; cycle < maxSPLearningCycles; cycle++)
             {
@@ -185,6 +185,7 @@ namespace NeoCortexApiSample
                     similarity = MathHelpers.CalcArraySimilarity(activeColumns, prevActiveCols[input]);
 
                     Debug.WriteLine($"[cycle={cycle.ToString("D4")}, i={input}, cols=:{actCols.Length} s={similarity}] SDR: {Helpers.StringifyVector(actCols)}");
+                    Console.WriteLine($"[cycle={cycle.ToString("D4")}, i={input}, cols=:{actCols.Length} s={similarity}] SDR: {Helpers.StringifyVector(actCols)}");
 
                     prevActiveCols[input] = activeColumns;
                     prevSimilarity[input] = similarity;
